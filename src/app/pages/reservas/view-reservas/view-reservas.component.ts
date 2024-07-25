@@ -1,6 +1,9 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {ReservasService} from "../../../services/reservas.service";
+import {FavoritasService} from "../../../services/favoritas.service";
+
+
 
 
 export interface PeriodicElement {
@@ -30,10 +33,21 @@ const ELEMENT_DATA: PeriodicElement[] = [
   templateUrl: './view-reservas.component.html',
   styleUrls: ['./view-reservas.component.css']
 })
-export class ViewReservasComponent {
+export class ViewReservasComponent implements OnInit{
+  reservas:  ReservasService | undefined;
+  constructor(private _httpClient: HttpClient) {}
 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = ELEMENT_DATA;
+  displayedColumns: string[] = ['id', 'nombres', 'apellidos', 'correo'];
+  dataSource :any;
+
+
+
+  ngOnInit() {
+    this.reservas = new ReservasService(this._httpClient);
+    this.reservas.getReservas().subscribe(data => {
+      this.dataSource = data;
+    });
+  }
 
 
 }

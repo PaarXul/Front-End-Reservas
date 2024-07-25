@@ -11,7 +11,7 @@ export class ReservasService {
   }
 
   public getReservas(): Observable<any> {
-    const href = 'http://localhost:8081/reserva/';
+    const href = 'http://localhost:8090/api/reserva/';
 
     return this.http.get(`${href}`);
   }
