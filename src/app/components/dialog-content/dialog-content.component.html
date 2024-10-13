@@ -1,0 +1,20 @@
+<h1 mat-dialog-title>{{ data.action === 'edit' ? 'Editar' : 'Eliminar' }}</h1>
+<div mat-dialog-content>
+  <ng-container *ngIf="data.action === 'edit'">
+    <form #editForm="ngForm">
+      <mat-form-field>
+        <input matInput placeholder="Nombre" [(ngModel)]="data.elemento.nombre" name="nombre">
+      </mat-form-field>
+      <!-- Agrega más campos según sea necesario -->
+    </form>
+  </ng-container>
+
+  <ng-container *ngIf="data.action === 'delete'">
+    <p>¿Estás seguro de que deseas eliminar este elemento?</p>
+  </ng-container>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cerrar</button>
+  <button mat-button [mat-dialog-close]="data" *ngIf="data.action === 'edit'">Guardar</button>
+  <button mat-button [mat-dialog-close]="true" *ngIf="data.action === 'delete'">Confirmar</button>
+</div>
