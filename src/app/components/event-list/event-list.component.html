@@ -9,8 +9,8 @@
         {{ element[column] }}
       </ng-container>
       <ng-template #actionColumn>
-        <button mat-button color="primary">Editar</button>
-        <button mat-button color="warn" >Eliminar</button>
+        <button mat-button color="primary" (click)="openEditDialog(element)">Editar</button>
+        <button mat-button color="warn" (click)="openDeleteDialog(element)">Eliminar</button>
       </ng-template>
     </td>
   </ng-container>

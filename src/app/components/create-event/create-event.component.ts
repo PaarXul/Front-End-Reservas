@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EventService } from '../../services/event.service';
-import { Event } from '../../models/event';
+import { AppEvent } from '../../models/event';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class CreateEventComponent implements OnInit {
 
-  event: Event = new Event();
+  event: AppEvent = new AppEvent();
 
   constructor(private eventService: EventService, private router: Router) { }
 

@@ -32,6 +32,10 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { EventListComponent } from './components/event-list/event-list.component';
 import { CreateEventComponent } from './components/create-event/create-event.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import {EventDialogComponent} from './components/dialog-content/dialog-content.component';
+
+
 
 @NgModule({
   declarations: [
@@ -39,6 +43,7 @@ import { CreateEventComponent } from './components/create-event/create-event.com
     EventListComponent,
     CreateEventComponent,
     NavbarComponent,
+    EventDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -72,6 +77,7 @@ import { CreateEventComponent } from './components/create-event/create-event.com
       showForeground: true,
     }),
     MatTabsModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
