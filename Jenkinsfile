@@ -9,7 +9,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Clona la rama actual
-                git branch: 'Nicolas', url: 'https://github.com/tu_usuario/tu_repositorio_frontend.git'
+                git branch: 'Nicolas', url: 'https://github.com/PaarXul/Front-End-Reservas'
             }
         }
         stage('Install Dependencies') {
