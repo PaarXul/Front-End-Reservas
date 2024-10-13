@@ -21,35 +21,35 @@ export class EventListComponent implements OnInit {
   constructor(private eventService: EventService) {}
 
   ngOnInit(): void {
-    //this.getEvents();
-    this.loadMockEvents();
+    this.getEvents();
+    //this.loadMockEvents();
   }
-  private loadMockEvents() {
-    this.events = [
-      {
-        id: 1,
-        name: 'Concierto de Rock',
-        location: 'Estadio Nacional',
-        date: '2024-10-01',
-      },
-      {
-        id: 2,
-        name: 'Obra de Teatro',
-        location: 'Teatro Municipal',
-        date: '2024-11-05',
-      },
-      {
-        id: 3,
-        name: 'Festival de Jazz',
-        location: 'Parque Central',
-        date: '2024-12-12',
-      },
-    ];
-  }
+  // private loadMockEvents() {
+  //   this.events = [
+  //     {
+  //       id: 1,
+  //       name: 'Concierto de Rock',
+  //       location: 'Estadio Nacional',
+  //       date: '2024-10-01',
+  //     },
+  //     {
+  //       id: 2,
+  //       name: 'Obra de Teatro',
+  //       location: 'Teatro Municipal',
+  //       date: '2024-11-05',
+  //     },
+  //     {
+  //       id: 3,
+  //       name: 'Festival de Jazz',
+  //       location: 'Parque Central',
+  //       date: '2024-12-12',
+  //     },
+  //   ];
+  // }
 
   private getEvents() {
     this.eventService.getEvents().subscribe((data) => {
-      //this.events = data;
+      this.events = data;
     });
   }
 
