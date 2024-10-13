@@ -20,8 +20,10 @@ pipeline {
         }
         stage('Run Tests') {
             steps {
-                // Ejecuta las pruebas unitarias
-                sh 'npm run test -- --watch=false --browsers=ChromeHeadless'
+                script {
+                    // Ejecuta las pruebas unitarias
+                    sh 'npm test'
+                }
             }
         }
         stage('Build') {
