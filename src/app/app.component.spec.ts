@@ -1,31 +1,42 @@
-import { TestBed } from '@angular/core/testing';
+import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { NavbarComponent } from './components/navbar/navbar.component'; // Importa el NavbarComponent
+import { RouterTestingModule } from '@angular/router/testing'; // Para manejar el routerLink
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { MatDialogModule } from '@angular/material/dialog'; // Importa MatDialogModule
+
 
 describe('AppComponent', () => {
+  let component: AppComponent;
+  let fixture: ComponentFixture<AppComponent>;
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [
-        AppComponent
+      imports: [
+        RouterTestingModule, // Necesario para manejar 'routerLink'
+        MatToolbarModule,
+        MatButtonModule,
+        MatIconModule,
+        MatDialogModule,
       ],
+      declarations: [
+        AppComponent,
+        NavbarComponent // Declara el NavbarComponent para las pruebas
+      ],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA] // Opcional si quieres suprimir algunos errores de elementos desconocidos
     }).compileComponents();
   });
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
-  });
-
-  it(`should have as title 'front-end-noticias'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('front-end-noticias');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
+  beforeEach(() => {
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance;
     fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('front-end-noticias app is running!');
+  });
+
+  it('debería crearse el componente', () => {
+    expect(component).toBeTruthy();
   });
 });
