@@ -4,10 +4,12 @@ import {ViewNuevasComponent} from "./pages/noticiasNuevas/view-nuevas/view-nueva
 import {ViewFavoritasComponent} from "./pages/noticiasFavoritas/view-favoritas/view-favoritas.component";
 import {LoginComponent} from "./pages/login/login.component";
 import {ViewReservasComponent} from "./pages/reservas/view-reservas/view-reservas.component";
+import { HomeComponent } from './components/home/home.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'reservas', pathMatch: 'full'},
+  { path: 'home', component: HomeComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'news', component: ViewNuevasComponent},
   {path: 'login', component:LoginComponent},
   {path: 'favorite', component: ViewFavoritasComponent},

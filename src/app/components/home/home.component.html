@@ -1,0 +1,47 @@
+<header>
+  <h1>Bienvenido a Grupo2</h1>
+  <h2>¡El lugar perfecto para tus celebraciones!</h2>
+</header>
+
+<section class="hero-image">
+  <img src="assets/evento1.png" alt="Evento" />
+
+</section>
+
+<section class="benefits">
+  <h3>¿Por qué elegirnos?</h3>
+  <ul>
+    <li>Espacios adaptables para todo tipo de eventos.</li>
+    <li>Servicios completos: catering, decoración y tecnología.</li>
+    <li>Atención personalizada y equipo profesional.</li>
+  </ul>
+</section>
+
+<section class="booking-form">
+  <h3>Haz tu Reserva</h3>
+  <form #bookingForm="ngForm" (ngSubmit)="submitForm(bookingForm)">
+    <input type="date" name="fecha" ngModel required>
+    <select name="tipoEvento" ngModel required>
+      <option value="boda">Boda</option>
+      <option value="conferencia">Conferencia</option>
+      <option value="fiesta">Fiesta</option>
+    </select>
+    <input type="text" name="nombre" placeholder="Tu nombre" ngModel required>
+    <input type="email" name="email" placeholder="Tu correo" ngModel required>
+    <input type="tel" name="telefono" placeholder="Tu teléfono" ngModel required>
+    <button type="submit">¡Reserva Ahora!</button>
+  </form>
+</section>
+
+<section class="testimonials">
+  <h3>Lo que dicen nuestros clientes</h3>
+  <blockquote>
+    "El mejor lugar para nuestra boda, todo salió perfecto!"
+    <cite>- Ana y Luis</cite>
+  </blockquote>
+</section>
+
+<footer>
+  <p>Contáctanos: 123-456-7890 | infocentrodeeventos.com</p>
+  <p>Síguenos en redes sociales: [iconos de redes sociales]</p>
+</footer>

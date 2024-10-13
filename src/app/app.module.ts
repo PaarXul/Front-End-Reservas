@@ -35,6 +35,8 @@ import {MatTabsModule} from "@angular/material/tabs";
 import { LoginComponent } from './pages/login/login.component';
 import { ViewReservasComponent } from './pages/reservas/view-reservas/view-reservas.component';
 import { FormReservasComponent } from './pages/reservas/form-reservas/form-reservas.component';
+import { HomeComponent } from './components/home/home.component';
+
 
 @NgModule({
   declarations: [
@@ -44,7 +46,8 @@ import { FormReservasComponent } from './pages/reservas/form-reservas/form-reser
     ViewNuevasComponent,
     LoginComponent,
     ViewReservasComponent,
-    FormReservasComponent
+    FormReservasComponent,
+    HomeComponent
   ],
     imports: [
         BrowserModule,
