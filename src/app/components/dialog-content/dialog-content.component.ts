@@ -32,6 +32,11 @@ export class EventDialogComponent {
   }
 
   saveEvent(): void {
+    // Formatear la fecha a 'YYYY-MM-DD' antes de enviarla al backend
+  const formattedEvent = {
+    ...this.event,
+    date: this.formatDate(this.event.date)  // Utiliza la función formatDate para cambiar el formato
+  };
     this.eventService.createEvent(this.event).subscribe(
       (data) => {
         console.log('Evento guardado:', data);
@@ -48,4 +53,15 @@ export class EventDialogComponent {
   onSubmit() {
     this.saveEvent();
   }
+
+  // Añadir una función auxiliar para formatear la fecha
+formatDate(date: Date | string): string {
+  const d = new Date(date);
+  const year = d.getFullYear();
+  const month = ('0' + (d.getMonth() + 1)).slice(-2);  // Asegura siempre tener dos dígitos
+  const day = ('0' + d.getDate()).slice(-2);           // Asegura siempre tener dos dígitos
+  return `${year}-${month}-${day}`;
 }
+}
+
+

@@ -13,7 +13,9 @@
         <input matInput placeholder="Ubicación" [(ngModel)]="event.location" name="location" required>
       </mat-form-field>
       <mat-form-field>
-        <input matInput placeholder="Fecha" [(ngModel)]="event.date" name="date" required type="date">
+        <input matInput [matDatepicker]="picker" placeholder="Fecha" [(ngModel)]="event.date" name="date" required>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
 
       <!-- Botón de Guardar dentro del formulario -->
