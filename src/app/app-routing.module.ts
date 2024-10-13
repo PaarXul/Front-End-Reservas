@@ -1,22 +1,15 @@
 import { NgModule } from '@angular/core';
-import {RouterModule, Routes} from "@angular/router";
-import {ViewNuevasComponent} from "./pages/noticiasNuevas/view-nuevas/view-nuevas.component";
-import {ViewFavoritasComponent} from "./pages/noticiasFavoritas/view-favoritas/view-favoritas.component";
-import {LoginComponent} from "./pages/login/login.component";
-import {ViewReservasComponent} from "./pages/reservas/view-reservas/view-reservas.component";
-
+import { RouterModule, Routes } from '@angular/router';
+import { EventListComponent } from './components/event-list/event-list.component';
+import { CreateEventComponent } from './components/create-event/create-event.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'reservas', pathMatch: 'full'},
-  {path: 'news', component: ViewNuevasComponent},
-  {path: 'login', component:LoginComponent},
-  {path: 'favorite', component: ViewFavoritasComponent},
-  {path: 'reservas', component: ViewReservasComponent},
-
+  { path: 'events', component: EventListComponent },
+  { path: 'create-event', component: CreateEventComponent },
+  { path: '', redirectTo: 'events', pathMatch: 'full' }
 ];
 
 @NgModule({
-  declarations: [],
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })

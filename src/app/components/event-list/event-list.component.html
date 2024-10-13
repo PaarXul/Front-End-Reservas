@@ -1,0 +1,25 @@
+<div class="container">
+    <h2>Event List</h2>
+  
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Location</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let event of events">
+          <td>{{ event.id }}</td>
+          <td>{{ event.name }}</td>
+          <td>{{ event.location }}</td>
+          <td>{{ event.date }}</td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <p *ngIf="events.length === 0">No events available</p>
+  </div>
+  

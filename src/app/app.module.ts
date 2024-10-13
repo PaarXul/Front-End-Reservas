@@ -20,31 +20,26 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatLineModule} from "@angular/material/core";
-import { NgxUiLoaderModule , NgxUiLoaderHttpModule } from "ngx-ui-loader";
+import {NgxUiLoaderModule , NgxUiLoaderHttpModule } from "ngx-ui-loader";
 import {MatRadioModule} from '@angular/material/radio';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatSort, Sort, MatSortModule} from '@angular/material/sort';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 import { MatTableExporterModule } from 'mat-table-exporter';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { ViewFavoritasComponent } from './pages/noticiasFavoritas/view-favoritas/view-favoritas.component';
-import { ViewNuevasComponent } from './pages/noticiasNuevas/view-nuevas/view-nuevas.component';
 import {MatPaginator, MatPaginatorModule} from "@angular/material/paginator";
 import {MatTabsModule} from "@angular/material/tabs";
-import { LoginComponent } from './pages/login/login.component';
-import { ViewReservasComponent } from './pages/reservas/view-reservas/view-reservas.component';
-import { FormReservasComponent } from './pages/reservas/form-reservas/form-reservas.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { EventListComponent } from './components/event-list/event-list.component';
+import { CreateEventComponent } from './components/create-event/create-event.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    ViewFavoritasComponent,
-    ViewNuevasComponent,
-    LoginComponent,
-    ViewReservasComponent,
-    FormReservasComponent
+    EventListComponent,
+    CreateEventComponent,
+
   ],
     imports: [
         BrowserModule,
