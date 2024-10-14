@@ -20,17 +20,56 @@
 <section class="booking-form">
   <h3>Haz tu Reserva</h3>
   <form #bookingForm="ngForm" (ngSubmit)="submitForm(bookingForm)">
-    <input type="date" name="fecha" ngModel required>
-    <select name="tipoEvento" ngModel required>
-      <option value="boda">Boda</option>
-      <option value="conferencia">Conferencia</option>
-      <option value="fiesta">Fiesta</option>
-    </select>
-    <input type="text" name="nombre" placeholder="Tu nombre" ngModel required>
-    <input type="email" name="email" placeholder="Tu correo" ngModel required>
-    <input type="tel" name="telefono" placeholder="Tu teléfono" ngModel required>
-    <button type="submit">¡Reserva Ahora!</button>
+    
+  
+    <!-- Campo de Tipo de Evento -->
+      <label for="name">Event Name</label>
+      <input
+        type="text"
+        id="name"
+        class="form-control"
+        required
+        [(ngModel)]="event.name"
+        name="name"
+        #name="ngModel"
+      />
+      <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+        Event name is required.
+      </div>
+
+        <label for="location">Location</label>
+        <input
+          type="text"
+          id="location"
+          class="form-control"
+          required
+          [(ngModel)]="event.location"
+          name="location"
+          #location="ngModel"
+        />
+        <div *ngIf="location.invalid && (location.dirty || location.touched)" class="alert alert-danger">
+          Location is required.
+        </div>
+
+      <!-- Campo de Fecha -->
+        <label for="date">Date</label>
+        <input
+          type="date"
+          id="date"
+          class="form-control"
+          required
+          [(ngModel)]="event.date"
+          name="date"
+          #date="ngModel"
+        />
+        <div *ngIf="date.invalid && (date.dirty || date.touched)" class="alert alert-danger">
+          Date is required.
+        </div>
+  
+    
+    <button type="submit" class="btn btn-primary" [disabled]="bookingForm.invalid" (click)="goToEvents()">¡Reserva Ahora!</button>
   </form>
+  
 </section>
 
 <section class="testimonials">
