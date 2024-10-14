@@ -3,7 +3,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { EventService } from '../../services/event.service';  // Importa el servicio
 import { AppEvent } from '../../models/event';
 import { EventNotifierService } from '../../services/event-notifier.service';  // Importa el servicio de notificación
-
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -19,9 +19,8 @@ export class EventDialogComponent {
     public dialogRef: MatDialogRef<EventDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private eventService: EventService,
-    private eventNotifier: EventNotifierService  
-
-
+    private eventNotifier: EventNotifierService  ,
+    private router: Router
   ) {
     // Inicializa el evento dependiendo de la acción (add o edit)
     this.event = data.action === 'add' ? { id: 0, name: '', location: '', date: '' } : { ...data.event };
@@ -42,6 +41,10 @@ export class EventDialogComponent {
         console.log('Evento guardado:', data);
         this.eventNotifier.notifyEventAdded();  // Notificamos que se ha añadido un evento
         this.dialogRef.close(data); // Cerramos el diálogo y pasamos los datos creados
+         // Redirige a /events si no estamos ya en esa ruta
+        if (this.router.url !== '/events') {
+          this.router.navigate(['/events']);
+        }
       },
       (error) => {
         console.log('Error al guardar el evento:', error);

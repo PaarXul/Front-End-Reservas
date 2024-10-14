@@ -1,12 +1,12 @@
 <mat-toolbar color="primary">
-    <a [routerLink]="'/'"  mat-icon-button class="example-icon"
-       aria-label="Example icon-botton with menu icon">
-      <mat-icon>menu_books</mat-icon> </a>
-  
-    <span class="example-spacer">Centro de Eventos</span>
+    <a [routerLink]="'/'"  mat-icon-button class="example-icon" aria-label="Example icon-botton with menu icon">
+      <mat-icon>menu_books</mat-icon> 
+      
+      <span class="example-spacer">Centro de Eventos</span>
+    </a>
     <span class="example-spacer"></span>
   
-    <button mat-button ><mat-icon>feed</mat-icon> Listar Reservas</button>
+    <button mat-button (click)="goToEvents()"><mat-icon>feed</mat-icon> Listar Reservas</button>
   
     <button mat-button (click)="openAddDialog()"><mat-icon>feed</mat-icon> Agregar Reserva</button>
   

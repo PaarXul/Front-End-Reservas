@@ -3,6 +3,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { EventDialogComponent } from '../dialog-content/dialog-content.component';
 import { EventNotifierService } from '../../services/event-notifier.service';
 import { AppEvent } from '../../models/event';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-navbar',
@@ -10,7 +12,7 @@ import { AppEvent } from '../../models/event';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-  constructor(public dialog: MatDialog, private eventNotifier: EventNotifierService) { }
+  constructor(public dialog: MatDialog, private eventNotifier: EventNotifierService, private router: Router) { }
 
   openAddDialog(): void {
     const dialogRef = this.dialog.open(EventDialogComponent, {
@@ -23,5 +25,10 @@ export class NavbarComponent {
         this.eventNotifier.notifyEventAdded();
       }
     });
+  }
+
+  // Método para redirigir a la página de eventos
+  goToEvents() {
+    this.router.navigate(['/events']);
   }
 }
