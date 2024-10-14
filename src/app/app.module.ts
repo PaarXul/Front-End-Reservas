@@ -37,6 +37,7 @@ import { CreateEventComponent } from './components/create-event/create-event.com
 import { MatDialogModule } from '@angular/material/dialog';
 import {EventDialogComponent} from './components/dialog-content/dialog-content.component';
 
+
 import { HomeComponent } from './components/home/home.component';
 
 
