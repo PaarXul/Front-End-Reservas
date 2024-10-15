@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { EventService } from '../../services/event.service';
+
 
 
 @Component({
@@ -8,9 +10,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  constructor(private router: Router) { }
+  constructor(private eventService: EventService,private router: Router) { }
 
   event = {
+    id: 0, // o un valor por defecto
     name: '',
     location: '',
     date: ''
@@ -20,7 +23,19 @@ export class HomeComponent {
     console.log(form.value);
   }
   // Método para redirigir a la página de eventos
-  goToEvents() {
+
+  saveEvent() {
+    this.eventService.createEvent(this.event).subscribe(data => {
+      console.log(data);
+      this.goToEventList();
+    }, error => console.log(error));
+  }
+
+  onSubmit() {
+    this.saveEvent();
+  }
+
+  goToEventList() {
     this.router.navigate(['/events']);
   }
 }

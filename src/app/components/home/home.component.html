@@ -19,7 +19,7 @@
 
 <section class="booking-form">
   <h3>Haz tu Reserva</h3>
-  <form #bookingForm="ngForm" (ngSubmit)="submitForm(bookingForm)">
+  <form #bookingForm="ngForm" (ngSubmit)="onSubmit()">
     
   
     <!-- Campo de Tipo de Evento -->
@@ -67,7 +67,7 @@
         </div>
   
     
-    <button type="submit" class="btn btn-primary" [disabled]="bookingForm.invalid" (click)="goToEvents()">¡Reserva Ahora!</button>
+    <button type="submit" class="btn btn-primary" [disabled]="bookingForm.invalid" (click)="goToEventList()">¡Reserva Ahora!</button>
   </form>
   
 </section>
